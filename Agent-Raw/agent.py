@@ -210,6 +210,7 @@ class AgentApp(ctk.CTk):
         self.telemetry_status = ctk.CTkLabel(self.main_container, text="Status: Streaming data...", font=("Arial", 11), text_color="gray")
         self.telemetry_status.pack(pady=10)
 
+
     def toggle_telemetry(self):
         self.is_telemetry_running = not self.is_telemetry_running
         if self.is_telemetry_running:
@@ -371,6 +372,7 @@ def collect_system_data():
         "total": round(vm.total / (1024**3), 2)
     }
 
+    # Data prepared to transfer
     return {
         "cpu_usage": psutil.cpu_percent(interval=1),
         "cpu_cores": psutil.cpu_percent(interval=None, percpu=True),
